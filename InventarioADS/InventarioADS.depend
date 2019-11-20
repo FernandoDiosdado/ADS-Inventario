@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1574225344 source:e:\ads\proyecto\inventarioads\lote.cpp
+1574233688 source:e:\ads\proyecto\inventarioads\lote.cpp
 	<string>
 	<iostream>
 	"Lote.h"
 
-1574209938 e:\ads\proyecto\inventarioads\lote.h
+1574233694 e:\ads\proyecto\inventarioads\lote.h
 	<iostream>
 	<fstream>
 	<string>
@@ -19,13 +19,14 @@
 	<vector>
 	<cassert>
 
-1574225046 source:e:\ads\proyecto\inventarioads\almacen.cpp
+1574279494 source:e:\ads\proyecto\inventarioads\almacen.cpp
 	"Almacen.h"
 	<iostream>
 	<string>
 
-1574194438 e:\ads\proyecto\inventarioads\almacen.h
+1574279554 e:\ads\proyecto\inventarioads\almacen.h
 	<iostream>
+	<stdlib.h>
 	<fstream>
 	<string>
 	<vector>
@@ -33,7 +34,7 @@
 	"Producto.h"
 	"Proveedor.h"
 
-1574231520 e:\ads\proyecto\inventarioads\producto.h
+1574233364 e:\ads\proyecto\inventarioads\producto.h
 	<iostream>
 	<fstream>
 	<string>
@@ -41,7 +42,7 @@
 	<cassert>
 	"Lote.h"
 
-1574231594 source:e:\ads\proyecto\inventarioads\producto.cpp
+1574232872 source:e:\ads\proyecto\inventarioads\producto.cpp
 	<string>
 	<vector>
 	<iostream>
@@ -52,7 +53,7 @@
 	<string>
 	"Proveedor.h"
 
-1574232344 source:e:\ads\proyecto\inventarioads\main.cpp
+1574279502 source:e:\ads\proyecto\inventarioads\main.cpp
 	<iostream>
 	<stdlib.h>
 	<string>

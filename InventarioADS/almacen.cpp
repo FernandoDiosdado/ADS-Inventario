@@ -43,6 +43,84 @@ void Almacen::imprimirProveedor(){
         cout<<prov[i].getNombre()<<"\t\t||"<<endl;
     }
 }
+Almacen Almacen::leerAlmacen(){
+    Almacen almc;
+    int i;
+    //Recupera datos de objeto de clase Almacen
+    ifstream in("E:\\ADS\\Proyecto\\InventarioADS\\almacen.txt");
+        in>>almc;
+    in.close();
+    //Recupera datos de objetos de clase Productos
+    in.open("E:\\ADS\\Proyecto\\InventarioADS\\productos.txt");
+        int x=almc.numProd;
+        //int r=almc.numProd;
+        Producto prod[x];
+        almc.numProd=0;
+        for(i=0; i<x; i++){
+            in>>prod[i];
+            almc.agregarProducto(prod[i]);
+        }
+    in.close();
+    //Recupera datos de objetos de clase Proveedor
+    in.open("E:\\ADS\\Proyecto\\InventarioADS\\proveedores.txt");
+        x=almc.numProv;
+        Proveedor prove[x];
+        almc.numProv=0;
+        for(i=0; i<x; i++){
+            in>>prove[i];
+            almc.agregarProveedor(prove[i]);
+        }
+    in.close();
+    //Recupera datos de objetos de clase Lotes
+    in.open("E:\\ADS\\Proyecto\\InventarioADS\\lotes.txt");
+        int y, tot=0;
+        x=almc.numProd;
+        for(i=0; i<x; i++){
+            y=almc.productos[i].getNumLotes();
+            almc.productos[i].setNumLotes(0);
+            tot+=y;
+        }
+        Lote lotin[tot];
+        for(i=0; i<tot; i++){
+            in>>lotin[i];
+            almc.productos[lotin[i].getIdProduc()].agregarLote(lotin[i]);
+        }
+    in.close();
+    //Elimina datos de los archivos que fueron leidos para que no se sobreescriba
+    system("del E:\\ADS\\Proyecto\\InventarioADS\\productos.txt");
+    system("del E:\\ADS\\Proyecto\\InventarioADS\\almacen.txt");
+    system("del E:\\ADS\\Proyecto\\InventarioADS\\proveedores.txt");
+    system("del E:\\ADS\\Proyecto\\InventarioADS\\lotes.txt");
+    return almc;
+}
+void Almacen::guardarDatos(Almacen almacen){
+    int i;
+    //Guarda los datos del objetos del tipo Producto
+    ofstream out("E:\\ADS\\Proyecto\\InventarioADS\\productos.txt");
+    for(i=0; i<almacen.numProd; i++){
+        out<<almacen.productos[i];
+    }
+    out.close();
+    //Guarda los datos del objeto de tipo Almacen
+    out.open("E:\\ADS\\Proyecto\\InventarioADS\\almacen.txt");
+    out<<almacen;
+    out.close();
+    //Guarda los datos del objeto de tipo Proveedor
+    out.open("E:\\ADS\\Proyecto\\InventarioADS\\proveedores.txt");
+    for(i=0;i<almacen.prov.size();i++){
+        out<<almacen.prov[i];
+    }
+    out.close();
+    //Guarda los datos del objetos del tipo Lotes
+    out.open("E:\\ADS\\Proyecto\\InventarioADS\\lotes.txt");
+    for(i=0; i<almacen.numProd; i++){
+        for(int j=0; j<almacen.productos[i].lote.size(); j++){
+            out<<almacen.productos[i].lote[j];
+        }
+        cout<<"--"<<i<<"--"<<endl;
+    }
+    out.close();
+}
 
 
 

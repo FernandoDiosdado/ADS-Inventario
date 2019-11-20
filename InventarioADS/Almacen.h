@@ -1,6 +1,7 @@
 #ifndef ALMACEN_H
 #define ALMACEN_H
 #include <iostream>
+#include <stdlib.h>
 #include <fstream>
 #include <string>
 #include <vector>
@@ -27,6 +28,8 @@ class Almacen{
         void agregarProveedor(Proveedor);
         void imprimirProducto();
         void imprimirProveedor();
+        Almacen leerAlmacen();
+        void guardarDatos(Almacen);
 
         bool operator==(const Almacen & obj)
         {

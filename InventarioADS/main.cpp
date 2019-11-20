@@ -13,46 +13,9 @@ using namespace std;
 int main(){
     int i;
     Almacen almacen;
-    Almacen almc;
-    //Recupera datos de objeto de clase Almacen
-    ifstream in("E:\\ADS\\Proyecto\\InventarioADS\\almacen.txt");
-        in>>almc;
-    in.close();
-    //Recupera datos de objetos de clase Productos
-    in.open("E:\\ADS\\Proyecto\\InventarioADS\\productos.txt");
-        int x=almc.numProd;
-        int r=almc.numProd;
-        Producto prod[x];
-        for(i=0; i<x; i++){
-            in>>prod[i];
-            almacen.agregarProducto(prod[i]);
-        }
-    in.close();
-    //Recupera datos de objetos de clase Proveedor
-    in.open("E:\\ADS\\Proyecto\\InventarioADS\\proveedores.txt");
-        x=almc.numProv;
-        Proveedor prove[x];
-        for(i=0; i<x; i++){
-            in>>prove[i];
-            almacen.agregarProveedor(prove[i]);
-        }
-    in.close();
-    //Recupera datos de objetos de clase Lotes
-    in.open("E:\\ADS\\Proyecto\\InventarioADS\\lotes.txt");
-        int y, tot=0;
-        x=almacen.numProd;
-        for(i=0; i<x; i++){
-            y=almacen.productos[i].getNumLotes();
-            almacen.productos[i].setNumLotes(0);
-            tot+=y;
-        }
-
-        Lote lotin[tot];
-        for(i=0; i<tot; i++){
-            in>>lotin[i];
-            almacen.productos[lotin[i].getIdProduc()].agregarLote(lotin[i]);
-        }
-    in.close();
+    //Lee todos los datos
+    almacen=almacen.leerAlmacen();
+    //Impresiones de prueba
     int z=almacen.productos.size();
         for(i=0; i<z; i++){
             cout<<"--------"<<almacen.productos[i].getNumLotes()<<"--------"<<endl;
@@ -70,11 +33,6 @@ int main(){
             }
 
         }
-    //Elimina datos de los archivos que fueron leidos para que no se sobreescriba
-    system("del E:\\ADS\\Proyecto\\InventarioADS\\productos.txt");
-    system("del E:\\ADS\\Proyecto\\InventarioADS\\almacen.txt");
-    system("del E:\\ADS\\Proyecto\\InventarioADS\\proveedores.txt");
-    system("del E:\\ADS\\Proyecto\\InventarioADS\\lotes.txt");
     //Inicia el código para gestion del almacen
     cout<<"\tAlmacen de tienda\n";
     do{
@@ -189,28 +147,6 @@ int main(){
     cin>>i;
     system("cls");
     }while(i==0);
-    //Guarda los datos del objetos del tipo Producto
-    ofstream out("E:\\ADS\\Proyecto\\InventarioADS\\productos.txt");
-    for(i=0; i<=almacen.numProd-1; i++){
-        out<<almacen.productos[i];
-    }
-    out.close();
-    //Guarda los datos del objeto de tipo Almacen
-    out.open("E:\\ADS\\Proyecto\\InventarioADS\\almacen.txt");
-    out<<almacen;
-    out.close();
-    //Guarda los datos del objeto de tipo Proveedor
-    out.open("E:\\ADS\\Proyecto\\InventarioADS\\proveedores.txt");
-    for(i=0;i<=almacen.prov.size()-1;i++){
-        out<<almacen.prov[i];
-    }
-    out.close();
-    //Guarda los datos del objetos del tipo Lotes
-    out.open("E:\\ADS\\Proyecto\\InventarioADS\\lotes.txt");
-    for(i=0; i<=almacen.numProd-1; i++){
-        for(int j=0; j<=almacen.productos[i].lote.size()-1; j++){
-            out<<almacen.productos[i].lote[j];
-        }
-    }
-    out.close();
+    //Guarda todos los datos
+    almacen.guardarDatos(almacen);
 }
