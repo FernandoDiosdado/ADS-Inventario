@@ -1,6 +1,7 @@
 #ifndef PROVEEDOR_H
 #define PROVEEDOR_H
 #include <iostream>
+#include <stdlib.h>
 #include <fstream>
 #include <string>
 #include <vector>

@@ -67,3 +67,75 @@
 1573777270 e:\ads\proyecto\inventarioads\tm.h
 	<ctime>
 
+1574538873 source:c:\users\lufer\downloads\inventarioads\lote.cpp
+	<string>
+	<iostream>
+	<stdlib.h>
+	"Lote.h"
+
+1574538872 c:\users\lufer\downloads\inventarioads\lote.h
+	<iostream>
+	<stdlib.h>
+	<fstream>
+	<string>
+	<vector>
+	<cassert>
+	"Proveedor.h"
+
+1574494466 c:\users\lufer\downloads\inventarioads\proveedor.h
+	<iostream>
+	<stdlib.h>
+	<fstream>
+	<string>
+	<vector>
+	<cassert>
+
+1574547151 source:c:\users\lufer\downloads\inventarioads\producto.cpp
+	<string>
+	<vector>
+	<iostream>
+	<stdlib.h>
+	"Producto.h"
+	"Almacen.h"
+
+1574540215 c:\users\lufer\downloads\inventarioads\producto.h
+	<iostream>
+	<stdlib.h>
+	<fstream>
+	<string>
+	<vector>
+	<cassert>
+	"Lote.h"
+
+1574496483 c:\users\lufer\downloads\inventarioads\almacen.h
+	<iostream>
+	<stdlib.h>
+	<fstream>
+	<string>
+	<vector>
+	<cassert>
+	"Producto.h"
+	"Proveedor.h"
+
+1574538934 source:c:\users\lufer\downloads\inventarioads\proveedor.cpp
+	<string>
+	<stdlib.h>
+	"Proveedor.h"
+
+1574532513 source:c:\users\lufer\downloads\inventarioads\almacen.cpp
+	"Almacen.h"
+	<iostream>
+	<stdlib.h>
+	<string>
+
+1574546674 source:c:\users\lufer\downloads\inventarioads\main.cpp
+	<iostream>
+	<stdlib.h>
+	<string>
+	<exception>
+	<fstream>
+	"Proveedor.h"
+	"Lote.h"
+	"Producto.h"
+	"Almacen.h"
+

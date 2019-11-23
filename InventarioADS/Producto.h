@@ -1,6 +1,7 @@
 #ifndef PRODUCTO_H
 #define PRODUCTO_H
 #include <iostream>
+#include <stdlib.h>
 #include <fstream>
 #include <string>
 #include <vector>
@@ -34,6 +35,8 @@ class Producto{
         int getNumLotes();
         //metodos
         void agregarLote(Lote);
+        void imprimirLotes();
+        Lote loteReciente();
 
         bool operator==(const Producto & obj)
         {

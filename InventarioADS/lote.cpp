@@ -1,8 +1,10 @@
 #include<string>
 #include <iostream>
+#include <stdlib.h>
 #include "Lote.h"
 using namespace std;
-//constructor
+//constructores
+Lote::Lote(){}
 Lote::Lote(int id_p,int _cantidad, float _precioTotal, tm fAdq, tm fCad, Proveedor prov){
     id_producto=id_p;
     prove=prov;

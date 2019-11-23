@@ -11,87 +11,115 @@
 using namespace std;
 
 int main(){
-    int i;
+    int i, _id;
+    float _precio;
+    bool x;
+    string _nombre;
     Almacen almacen;
     //Lee todos los datos
     almacen=almacen.leerAlmacen();
-    //Impresiones de prueba
-    int z=almacen.productos.size();
-        for(i=0; i<z; i++){
-            cout<<"--------"<<almacen.productos[i].getNumLotes()<<"--------"<<endl;
-            for(int j=0; j<almacen.productos[i].getNumLotes();j++){
-                cout<<"id: "<<almacen.productos[i].lote[j].getIdProduc()<<endl;
-                cout<<"cantidad: "<<almacen.productos[i].lote[j].getCantidad()<<endl;
-                cout<<"precio: "<<almacen.productos[i].lote[j].getPrecioTotal()<<endl;
-                cout<<"estado: "<<almacen.productos[i].lote[j].getEstado()<<endl;
-                cout<<"ADIA "<<almacen.productos[i].lote[j].getFechaAdq().tm_mday<<endl;
-                cout<<"AMES: "<<almacen.productos[i].lote[j].getFechaAdq().tm_mon<<endl;
-                cout<<"AANIO: "<<almacen.productos[i].lote[j].getFechaAdq().tm_year<<endl;
-                cout<<"cDIA "<<almacen.productos[i].lote[j].getFechaCad().tm_mday<<endl;
-                cout<<"cMES: "<<almacen.productos[i].lote[j].getFechaCad().tm_mon<<endl;
-                cout<<"cANIO: "<<almacen.productos[i].lote[j].getFechaCad().tm_year<<endl;
-            }
-
-        }
     //Inicia el código para gestion del almacen
-    cout<<"\tAlmacen de tienda\n";
+    cout<<"\tAlmacen de tienda"<<endl;
     do{
-        cout<<"\nElige una opcion\n";
-        cout<<"1. Productos\n";
-        cout<<"2. Proveedor\n";
-        cout<<"3. Salir\n";
+        cout<<"\nElige una opcion"<<endl;
+        cout<<"1. Productos"<<endl;
+        cout<<"2. Proveedor"<<endl;
+        cout<<"3. Lotes"<<endl;
+        cout<<"4. Salir"<<endl;
+        cout<<"Opcion: ";
         cin>>i;
         switch(i){
             case 1:{
-            if(almacen.productos.size()==0){
-                cout<<"\nNo hay ningun producto"<<endl;
-            }else{
-                almacen.imprimirProducto();
-                if(almacen.productos[0].getNumLotes()>0){
-                }
-            }
-            cout<<"\n1. Agregar un producto"<<endl;
-            cout<<"2. Eliminar un prducto"<<endl;
-            cout<<"3. Modificar un producto"<<endl;
-            cout<<"4. Agregar lote"<<endl;
-            cout<<"5. Regresar"<<endl;
+            almacen.imprimirProducto();
+            cout<<"\n1. Agregar producto"<<endl;
+            cout<<"2. Eliminar prducto"<<endl;
+            cout<<"3. Modificar producto"<<endl;
+            cout<<"4. Regresar"<<endl;
             cout<<"Opcion: ";
             cin>>i;
                 switch(i){
                     case 1:{
-                        int _idP=almacen.getNumProductos();
-                        string nombre, categoria;
-                        float precio;
+                        string categoria;
+                        if(almacen.getNumProductos()==0){
+                            _id=0;
+                        }else{
+                            _id=almacen.productos[almacen.getNumProductos()-1].getId()+1;
+                        }
                         cout<<"\nNombre: ";
-                        cin>>nombre;
+                        cin>>_nombre;
                         cout<<"Categoria: ";
                         cin>>categoria;
                         cout<<"Precio de venta: ";
-                        cin>>precio;
-                        Producto AgProducto(_idP,nombre,categoria,precio);
+                        cin>>_precio;
+                        Producto AgProducto(_id,_nombre,categoria,_precio);
                         almacen.agregarProducto(AgProducto);
                         cout<<"Hecho, has agregado un producto."<<endl;
+                        i=0;
+                        system("pause");
                     break;}
                     case 2:{
                         cout<<"\nEn construccion"<<endl;
                     break;}
+                    case 3:{
+                        cout<<"\nIntroduce el id del prodcuto a editar"<<endl;
+                    break;}
                     case 4:{
-                        int cant,PId,PvId;
-                        float precio;
-                        tm ad,cad;
-                        if(almacen.prov.size()==0){
-                            cout<<"No hay ningun proveedor"<<endl;
+                        i=0;
+                    break;}
+                }
+            break;}
+            case 2:{
+                almacen.imprimirProveedor();
+                cout<<"\n1. Agregar proveedor"<<endl;
+                cout<<"2. Eliminar proveedor"<<endl;
+                cout<<"3. Modificar proveedor"<<endl;
+                cout<<"4. Regresar"<<endl;
+                cout<<"Opcion: ";
+                cin>>i;
+                switch(i){
+                    case 1:{
+                        if(almacen.getNumProveedores()==0){
+                            _id=0;
                         }else{
-                            almacen.imprimirProveedor();
+                            _id=almacen.productos[almacen.getNumProveedores()-1].getId()+1;
                         }
+                        cout<<"\nNombre: ";
+                        cin>>_nombre;
+                        Proveedor AgProveedor(_id,_nombre);
+                        almacen.agregarProveedor(AgProveedor);
+                        cout<<"Hecho, has agregado un proveedor."<<endl;
+                        i=0;
+                        system("pause");
+                    break;}
+                    case 4:{
+                        i=0;
+                    break;}
+                }
+            break;}
+            case 3:{
+                for(i=0;i<almacen.getNumProductos();i++){
+                    almacen.productos[i].imprimirLotes();
+                }
+                cout<<"\n1. Agregar lote"<<endl;
+                cout<<"2. Activar-desactivar lote"<<endl;
+                cout<<"3. Lote mas antiguo para venta"<<endl;
+                cout<<"4. Regresar"<<endl;
+                cout<<"Opcion: ";
+                cin>>i;
+                switch(i){
+                    case 1:{
+                        int cantidad,PvId;
+                        tm ad,cad;
+                        almacen.imprimirProducto();
+                        almacen.imprimirProveedor();
                         cout<<"ID del producto: ";
-                        cin>>PId;
+                        cin>>_id;
                         cout<<"ID del proveedor: ";
                         cin>>PvId;
                         cout<<"Cantidad: ";
-                        cin>>cant;
+                        cin>>cantidad;
                         cout<<"Precio: ";
-                        cin>>precio;
+                        cin>>_precio;
                         cout<<"Fecha de adquisicion: "<<endl;
                         cout<<"Dia: ";
                         cin>>ad.tm_mday;
@@ -106,47 +134,82 @@ int main(){
                         cin>>cad.tm_mon;
                         cout<<"Ano: ";
                         cin>>cad.tm_year;
-                        Lote AgLote(PId,cant,precio,ad,cad,almacen.prov[PvId]);
-                        almacen.productos[PId].agregarLote(AgLote);
-                        cout<<"Hecho, has agregado un producto."<<endl;
-
+                        x=false;
+                        i=0;
+                        do{
+                           if(almacen.productos[i].getId()==_id){
+                                x=true;
+                           }else{i++;}
+                        }while(x==false);
+                        Lote AgLote(_id,cantidad,_precio,ad,cad,almacen.prov[PvId]);
+                        almacen.productos[i].agregarLote(AgLote);
+                        cout<<"Hecho, has agregado un lote."<<endl;
+                        i=0;
+                        system("pause");
                     break;}
-                    case 5:{
+                    case 2:{
+                        int nLote;
+                        string decision;
+                        cout<<"Activar-Desactivar lote";
+                        cout<<"\nId del producto: ";
+                        cin>>_id;
+                        cout<<"Numero de lote: ";
+                        cin>>nLote;
+                        i=0;
+                        x=false;
+                        do{
+                           if(almacen.productos[i].getId()==_id){
+                                x=true;
+                           }else{i++;}
+                        }while(x==false);
+                        cout<<"El estado del lote es:";
+                        if(almacen.productos[i].lote[nLote-1].getEstado()==0){
+                            cout<<"No disponible"<<endl;
+                            cout<<"Cambiar estado a disponible? si/no"<<endl;
+                            cin>>decision;
+                            if(decision=="si"){
+                                almacen.productos[i].lote[nLote-1].cambiarEstado(true);
+                            }else{
+                                cout<<"No hay cambios"<<endl;
+                            }
+                        }else{
+                            cout<<"Disponible"<<endl;
+                            cout<<"Cambiar estado a no disponible? si/no"<<endl;
+                            cin>>decision;
+                            if(decision=="si"){
+                                almacen.productos[x].lote[nLote-1].cambiarEstado(false);
+                            }else{
+                                cout<<"No hay cambios"<<endl;
+                            }
+                        }
+                        i=0;
                     break;}
-                }
-            break;}
-            case 2:{
-                if(almacen.prov.size()==0){
-                    cout<<"No hay ningun proveedor"<<endl;
-                }else{
-                    almacen.imprimirProveedor();
-                }
-                cout<<"\n1. Agregar un proveedor"<<endl;
-                cout<<"2. Eliminar un proveedor"<<endl;
-                cout<<"3. Regresar"<<endl;
-                cout<<"Opcion: ";
-                cin>>i;
-                switch(i){
-                    case 1:{
-                        int _idPr=almacen.getNumProveedores();
-                        string nombre;
-                        cout<<"\nNombre: ";
-                        cin>>nombre;
-                        Proveedor AgProveedor(_idPr,nombre);
-                        almacen.agregarProveedor(AgProveedor);
-                        cout<<"Hecho, has agregado un proveedor."<<endl;
+                    case 4:{
+                        i=0;
                     break;}
                     case 3:{
+                        cout<<"Ingrese el id del producto: ";
+                        cin>>_id;
+                        x=false;
+                        i=0;
+                        do{
+                           if(almacen.productos[i].getId()==_id){
+                                x=true;
+                           }else{i++;}
+                        }while(x==false);
+                        cout<<almacen.productos[i].loteReciente().getPrecioTotal();
+                        system("pause");
+                        i=0;
                     break;}
                 }
+
             break;}
-            case 3:{
+            case 4:{
+                i=4;
             break;}
         }
-    cout<<"\nDesea continuar? Ingrese 0: ";
-    cin>>i;
     system("cls");
-    }while(i==0);
+    }while(i!=4);
     //Guarda todos los datos
     almacen.guardarDatos(almacen);
 }

@@ -11,7 +11,6 @@
 using namespace std;
 
 class Almacen{
-    private:
     public:
         Almacen();
         int numProd;
@@ -30,7 +29,8 @@ class Almacen{
         void imprimirProveedor();
         Almacen leerAlmacen();
         void guardarDatos(Almacen);
-
+        void eliminarProducto(Producto);
+        void eliminarProducto(Producto);
         bool operator==(const Almacen & obj)
         {
             return (numProd == obj.numProd) && (numProv == obj.numProv);
