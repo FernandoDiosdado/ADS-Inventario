@@ -13,3 +13,8 @@ Electronica
 3.5
 Manzana
 Alimentos
+3
+0
+12.5
+Galleta
+Alimentos

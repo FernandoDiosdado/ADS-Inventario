@@ -58,7 +58,16 @@ int main(){
                         system("pause");
                     break;}
                     case 2:{
-                        cout<<"\nEn construccion"<<endl;
+                        cout<<"\nid del producto:"<<endl;
+                        cin>>_id;
+                        x=false;
+                        i=0;
+                        do{
+                           if(almacen.productos[i].getId()==_id){
+                                x=true;
+                           }else{i++;}
+                        }while(x==false);
+                        almacen.eliminarProducto(i);
                     break;}
                     case 3:{
                         cout<<"\nIntroduce el id del prodcuto a editar"<<endl;
@@ -90,6 +99,18 @@ int main(){
                         cout<<"Hecho, has agregado un proveedor."<<endl;
                         i=0;
                         system("pause");
+                    break;}
+                    case 2:{
+                        cout<<"\nid del proveedor:"<<endl;
+                        cin>>_id;
+                        x=false;
+                        i=0;
+                        do{
+                           if(almacen.prov[i].getId()==_id){
+                                x=true;
+                           }else{i++;}
+                        }while(x==false);
+                        almacen.eliminarProveedor(i);
                     break;}
                     case 4:{
                         i=0;

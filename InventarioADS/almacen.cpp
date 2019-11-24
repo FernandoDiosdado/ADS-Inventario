@@ -55,14 +55,15 @@ void Almacen::imprimirProveedor(){
 Almacen Almacen::leerAlmacen(){
     Almacen almc;
     int i;
+    cout<<"1"<<endl;
     //Recupera datos de objeto de clase Almacen
     ifstream in("almacen.txt");
         in>>almc;
     in.close();
+    cout<<"2"<<endl;
     //Recupera datos de objetos de clase Productos
     in.open("productos.txt");
         int x=almc.numProd;
-        //int r=almc.numProd;
         Producto prod[x];
         almc.numProd=0;
         for(i=0; i<x; i++){
@@ -70,6 +71,7 @@ Almacen Almacen::leerAlmacen(){
             almc.agregarProducto(prod[i]);
         }
     in.close();
+    cout<<"3"<<endl;
     //Recupera datos de objetos de clase Proveedor
     in.open("proveedores.txt");
         x=almc.numProv;
@@ -80,21 +82,22 @@ Almacen Almacen::leerAlmacen(){
             almc.agregarProveedor(prove[i]);
         }
     in.close();
+    cout<<"4"<<endl;
     //Recupera datos de objetos de clase Lotes
     in.open("lotes.txt");
-        int y, tot=0;
-        x=almc.numProd;
-        for(i=0; i<x; i++){
-            y=almc.productos[i].getNumLotes();
-            almc.productos[i].setNumLotes(0);
-            tot+=y;
-        }
-        Lote lotin[tot];
-        for(i=0; i<tot; i++){
-            in>>lotin[i];
-            almc.productos[lotin[i].getIdProduc()].agregarLote(lotin[i]);
+        for(i=0;i<almc.numProd;i++){
+                //cout<<"4."<<i<<endl;
+                int y=almc.productos[i].getNumLotes();
+                almc.productos[i].setNumLotes(0);
+            for(int j=0;j<y;j++){
+                cout<<"4.0."<<j<<endl;
+                Lote lotin;
+                in>>lotin;
+                almc.productos[i].agregarLote(lotin);
+            }
         }
     in.close();
+    cout<<"--5--"<<endl;
     //Elimina datos de los archivos que fueron leidos para que no se sobreescriba
     system("del productos.txt");
     system("del almacen.txt");
@@ -129,6 +132,14 @@ void Almacen::guardarDatos(Almacen almacen){
         cout<<"--"<<i<<"--"<<endl;
     }
     out.close();
+}
+void Almacen::eliminarProducto(int posicion){
+    productos.erase(productos.begin()+posicion);
+    numProd-=1;
+}
+void Almacen::eliminarProveedor(int posicion){
+    prov.erase(prov.begin()+posicion);
+    numProv-=1;
 }
 
 

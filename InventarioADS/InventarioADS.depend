@@ -1,30 +1,11 @@
 # depslib dependency file v1.0
-1574233688 source:e:\ads\proyecto\inventarioads\lote.cpp
-	<string>
-	<iostream>
-	"Lote.h"
-
-1574233694 e:\ads\proyecto\inventarioads\lote.h
-	<iostream>
-	<fstream>
-	<string>
-	<vector>
-	<cassert>
-	"Proveedor.h"
-
-1574195288 e:\ads\proyecto\inventarioads\proveedor.h
-	<iostream>
-	<fstream>
-	<string>
-	<vector>
-	<cassert>
-
-1574279494 source:e:\ads\proyecto\inventarioads\almacen.cpp
+1574570913 source:c:\users\lufer\downloads\inventarioads\almacen.cpp
 	"Almacen.h"
 	<iostream>
+	<stdlib.h>
 	<string>
 
-1574279554 e:\ads\proyecto\inventarioads\almacen.h
+1574565010 c:\users\lufer\downloads\inventarioads\almacen.h
 	<iostream>
 	<stdlib.h>
 	<fstream>
@@ -34,43 +15,13 @@
 	"Producto.h"
 	"Proveedor.h"
 
-1574233364 e:\ads\proyecto\inventarioads\producto.h
+1574540215 c:\users\lufer\downloads\inventarioads\producto.h
 	<iostream>
+	<stdlib.h>
 	<fstream>
 	<string>
 	<vector>
 	<cassert>
-	"Lote.h"
-
-1574232872 source:e:\ads\proyecto\inventarioads\producto.cpp
-	<string>
-	<vector>
-	<iostream>
-	"Producto.h"
-	"Almacen.h"
-
-1574195000 source:e:\ads\proyecto\inventarioads\proveedor.cpp
-	<string>
-	"Proveedor.h"
-
-1574279502 source:e:\ads\proyecto\inventarioads\main.cpp
-	<iostream>
-	<stdlib.h>
-	<string>
-	<exception>
-	<fstream>
-	"Proveedor.h"
-	"Lote.h"
-	"Producto.h"
-	"Almacen.h"
-
-1573777270 e:\ads\proyecto\inventarioads\tm.h
-	<ctime>
-
-1574538873 source:c:\users\lufer\downloads\inventarioads\lote.cpp
-	<string>
-	<iostream>
-	<stdlib.h>
 	"Lote.h"
 
 1574538872 c:\users\lufer\downloads\inventarioads\lote.h
@@ -90,45 +41,13 @@
 	<vector>
 	<cassert>
 
-1574547151 source:c:\users\lufer\downloads\inventarioads\producto.cpp
+1574538873 source:c:\users\lufer\downloads\inventarioads\lote.cpp
 	<string>
-	<vector>
 	<iostream>
 	<stdlib.h>
-	"Producto.h"
-	"Almacen.h"
-
-1574540215 c:\users\lufer\downloads\inventarioads\producto.h
-	<iostream>
-	<stdlib.h>
-	<fstream>
-	<string>
-	<vector>
-	<cassert>
 	"Lote.h"
 
-1574496483 c:\users\lufer\downloads\inventarioads\almacen.h
-	<iostream>
-	<stdlib.h>
-	<fstream>
-	<string>
-	<vector>
-	<cassert>
-	"Producto.h"
-	"Proveedor.h"
-
-1574538934 source:c:\users\lufer\downloads\inventarioads\proveedor.cpp
-	<string>
-	<stdlib.h>
-	"Proveedor.h"
-
-1574532513 source:c:\users\lufer\downloads\inventarioads\almacen.cpp
-	"Almacen.h"
-	<iostream>
-	<stdlib.h>
-	<string>
-
-1574546674 source:c:\users\lufer\downloads\inventarioads\main.cpp
+1574567249 source:c:\users\lufer\downloads\inventarioads\main.cpp
 	<iostream>
 	<stdlib.h>
 	<string>
@@ -138,4 +57,17 @@
 	"Lote.h"
 	"Producto.h"
 	"Almacen.h"
+
+1574547151 source:c:\users\lufer\downloads\inventarioads\producto.cpp
+	<string>
+	<vector>
+	<iostream>
+	<stdlib.h>
+	"Producto.h"
+	"Almacen.h"
+
+1574538934 source:c:\users\lufer\downloads\inventarioads\proveedor.cpp
+	<string>
+	<stdlib.h>
+	"Proveedor.h"
 
