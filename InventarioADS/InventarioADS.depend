@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1574570913 source:c:\users\lufer\downloads\inventarioads\almacen.cpp
+1574654566 source:c:\users\lufer\downloads\inventarioads\almacen.cpp
 	"Almacen.h"
 	<iostream>
 	<stdlib.h>
 	<string>
 
-1574565010 c:\users\lufer\downloads\inventarioads\almacen.h
+1574626704 c:\users\lufer\downloads\inventarioads\almacen.h
 	<iostream>
 	<stdlib.h>
 	<fstream>
@@ -24,7 +24,7 @@
 	<cassert>
 	"Lote.h"
 
-1574538872 c:\users\lufer\downloads\inventarioads\lote.h
+1574658092 c:\users\lufer\downloads\inventarioads\lote.h
 	<iostream>
 	<stdlib.h>
 	<fstream>
@@ -41,13 +41,13 @@
 	<vector>
 	<cassert>
 
-1574538873 source:c:\users\lufer\downloads\inventarioads\lote.cpp
+1574657745 source:c:\users\lufer\downloads\inventarioads\lote.cpp
 	<string>
 	<iostream>
 	<stdlib.h>
 	"Lote.h"
 
-1574567249 source:c:\users\lufer\downloads\inventarioads\main.cpp
+1574658115 source:c:\users\lufer\downloads\inventarioads\main.cpp
 	<iostream>
 	<stdlib.h>
 	<string>
@@ -58,7 +58,7 @@
 	"Producto.h"
 	"Almacen.h"
 
-1574547151 source:c:\users\lufer\downloads\inventarioads\producto.cpp
+1574658256 source:c:\users\lufer\downloads\inventarioads\producto.cpp
 	<string>
 	<vector>
 	<iostream>

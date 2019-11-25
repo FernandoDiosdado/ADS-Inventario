@@ -61,7 +61,7 @@ void Producto::imprimirLotes(){
             cout<<"Cantidad de piezas: "<<lote[i].getCantidad()<<endl;
             cout<<"Piezas vendidas: "<<lote[i].getPiezasVendidas()<<endl;
             cout<<"Precio por pieza: "<<lote[i].getPrecioTotal()<<endl;
-            cout<<"Estado del pesdido: ";
+            cout<<"Estado del pedido: ";
                 if(lote[i].getEstado()==0){
                     cout<<"No disponible para venta"<<endl;
                 }else{

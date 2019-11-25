@@ -30,6 +30,7 @@ int main(){
         cin>>i;
         switch(i){
             case 1:{
+            string _categoria;
             almacen.imprimirProducto();
             cout<<"\n1. Agregar producto"<<endl;
             cout<<"2. Eliminar prducto"<<endl;
@@ -39,7 +40,6 @@ int main(){
             cin>>i;
                 switch(i){
                     case 1:{
-                        string categoria;
                         if(almacen.getNumProductos()==0){
                             _id=0;
                         }else{
@@ -48,17 +48,22 @@ int main(){
                         cout<<"\nNombre: ";
                         cin>>_nombre;
                         cout<<"Categoria: ";
-                        cin>>categoria;
+                        cin>>_categoria;
                         cout<<"Precio de venta: ";
                         cin>>_precio;
-                        Producto AgProducto(_id,_nombre,categoria,_precio);
+                        Producto AgProducto(_id,_nombre,_categoria,_precio);
                         almacen.agregarProducto(AgProducto);
                         cout<<"Hecho, has agregado un producto."<<endl;
                         i=0;
                         system("pause");
                     break;}
                     case 2:{
-                        cout<<"\nid del producto:"<<endl;
+                        cout<<"\nid del producto: ";
+                        cin>>_id;
+                        almacen.eliminarProducto(_id);
+                    break;}
+                    case 3:{
+                        cout<<"\nIntroduce el id del producto a editar: ";
                         cin>>_id;
                         x=false;
                         i=0;
@@ -67,10 +72,21 @@ int main(){
                                 x=true;
                            }else{i++;}
                         }while(x==false);
-                        almacen.eliminarProducto(i);
-                    break;}
-                    case 3:{
-                        cout<<"\nIntroduce el id del prodcuto a editar"<<endl;
+                        cout<<"Nombre: ";
+                        cin>>_nombre;
+                        cout<<"Categoria: ";
+                        cin>>_categoria;
+                        cout<<"Precio de venta: ";
+                        cin>>_precio;
+                        almacen.productos[i].setNombre(_nombre);
+                        almacen.productos[i].setCategoria(_categoria);
+                        almacen.productos[i].setPrecioVenta(_precio);
+                        cout<<"Hecho,los nuevos datos son: "<<endl;
+                        cout<<almacen.productos[i].getNombre()<<endl;
+                        cout<<almacen.productos[i].getCategoria()<<endl;
+                        cout<<almacen.productos[i].getPrecioVenta()<<endl;
+                        system("pause") ;
+                        i=0;
                     break;}
                     case 4:{
                         i=0;
@@ -101,7 +117,12 @@ int main(){
                         system("pause");
                     break;}
                     case 2:{
-                        cout<<"\nid del proveedor:"<<endl;
+                        cout<<"\nid del proveedor: ";
+                        cin>>_id;
+                        almacen.eliminarProveedor(_id);
+                    break;}
+                    case 3:{
+                        cout<<"\nIntroduce el id del proveedor a editar: ";
                         cin>>_id;
                         x=false;
                         i=0;
@@ -110,7 +131,12 @@ int main(){
                                 x=true;
                            }else{i++;}
                         }while(x==false);
-                        almacen.eliminarProveedor(i);
+                        cout<<"\nNuevo nombre: ";
+                        cin>>_nombre;
+                        almacen.prov[i].setNombre(_nombre);
+                        cout<<"Hecho,los nuevos datos son: "<<endl;
+                        cout<<"Nombre: "<<almacen.prov[i].getNombre()<<endl;
+                        system("pause");
                     break;}
                     case 4:{
                         i=0;
@@ -162,7 +188,14 @@ int main(){
                                 x=true;
                            }else{i++;}
                         }while(x==false);
-                        Lote AgLote(_id,cantidad,_precio,ad,cad,almacen.prov[PvId]);
+                        x=false;
+                        int k=0;
+                        do{
+                           if(almacen.prov[i].getId()==PvId){
+                                x=true;
+                           }else{k++;}
+                        }while(x==false);
+                        Lote AgLote(_id,cantidad,_precio,ad,cad,almacen.prov[k]);
                         almacen.productos[i].agregarLote(AgLote);
                         cout<<"Hecho, has agregado un lote."<<endl;
                         i=0;
@@ -198,14 +231,11 @@ int main(){
                             cout<<"Cambiar estado a no disponible? si/no"<<endl;
                             cin>>decision;
                             if(decision=="si"){
-                                almacen.productos[x].lote[nLote-1].cambiarEstado(false);
+                                almacen.productos[i].lote[nLote-1].cambiarEstado(false);
                             }else{
                                 cout<<"No hay cambios"<<endl;
                             }
                         }
-                        i=0;
-                    break;}
-                    case 4:{
                         i=0;
                     break;}
                     case 3:{
@@ -222,8 +252,10 @@ int main(){
                         system("pause");
                         i=0;
                     break;}
+                    case 4:{
+                        i=0;
+                    break;}
                 }
-
             break;}
             case 4:{
                 i=4;
@@ -234,3 +266,4 @@ int main(){
     //Guarda todos los datos
     almacen.guardarDatos(almacen);
 }
+

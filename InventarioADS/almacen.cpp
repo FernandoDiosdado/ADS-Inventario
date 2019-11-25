@@ -55,12 +55,10 @@ void Almacen::imprimirProveedor(){
 Almacen Almacen::leerAlmacen(){
     Almacen almc;
     int i;
-    cout<<"1"<<endl;
     //Recupera datos de objeto de clase Almacen
     ifstream in("almacen.txt");
         in>>almc;
     in.close();
-    cout<<"2"<<endl;
     //Recupera datos de objetos de clase Productos
     in.open("productos.txt");
         int x=almc.numProd;
@@ -71,7 +69,6 @@ Almacen Almacen::leerAlmacen(){
             almc.agregarProducto(prod[i]);
         }
     in.close();
-    cout<<"3"<<endl;
     //Recupera datos de objetos de clase Proveedor
     in.open("proveedores.txt");
         x=almc.numProv;
@@ -82,7 +79,6 @@ Almacen Almacen::leerAlmacen(){
             almc.agregarProveedor(prove[i]);
         }
     in.close();
-    cout<<"4"<<endl;
     //Recupera datos de objetos de clase Lotes
     in.open("lotes.txt");
         for(i=0;i<almc.numProd;i++){
@@ -90,14 +86,12 @@ Almacen Almacen::leerAlmacen(){
                 int y=almc.productos[i].getNumLotes();
                 almc.productos[i].setNumLotes(0);
             for(int j=0;j<y;j++){
-                cout<<"4.0."<<j<<endl;
                 Lote lotin;
                 in>>lotin;
                 almc.productos[i].agregarLote(lotin);
             }
         }
     in.close();
-    cout<<"--5--"<<endl;
     //Elimina datos de los archivos que fueron leidos para que no se sobreescriba
     system("del productos.txt");
     system("del almacen.txt");
@@ -133,13 +127,47 @@ void Almacen::guardarDatos(Almacen almacen){
     }
     out.close();
 }
-void Almacen::eliminarProducto(int posicion){
-    productos.erase(productos.begin()+posicion);
-    numProd-=1;
+void Almacen::eliminarProducto(int _id){
+    bool x=false;
+    int i=0;
+    do{
+        if(productos[i].getId()==_id){
+            x=true;
+        }else{i++;}
+    }while(x==false);
+    if(productos[i].getNumLotes()>0){
+        cout<<"No se puede eliminar el producto, tiene lotes registrados"<<endl;
+    }else{
+        productos.erase(productos.begin()+i);
+        numProd-=1;
+        cout<<"Producto eliminado"<<endl;
+    }
+    system("pause");
 }
-void Almacen::eliminarProveedor(int posicion){
-    prov.erase(prov.begin()+posicion);
-    numProv-=1;
+void Almacen::eliminarProveedor(int _id){
+    bool x=false;
+    int i=0;
+    do{
+        if(prov[i].getId()==_id){
+            x=true;
+        }else{i++;}
+    }while(x==false);
+    int h=0;
+    for(int k=0;k<numProd;k++){
+        for(int j=0;j<productos[k].getNumLotes();j++){
+            if(productos[k].lote[j].getProveedor().getId()==_id){
+                h++;
+            }
+        }
+    }
+    if(h>0){
+        cout<<"No puedes eliminar el proveedor, está asociado a un lote"<<endl;
+    }else{
+        prov.erase(prov.begin()+i);
+        numProv-=1;
+        cout<<"Proveedor eliminado"<<endl;
+    }
+    system("pause");
 }
 
 
