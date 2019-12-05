@@ -71,3 +71,75 @@
 	<stdlib.h>
 	"Proveedor.h"
 
+1574654568 source:e:\ads\proyectopruebas\inventarioads\almacen.cpp
+	"Almacen.h"
+	<iostream>
+	<stdlib.h>
+	<string>
+
+1574626706 e:\ads\proyectopruebas\inventarioads\almacen.h
+	<iostream>
+	<stdlib.h>
+	<fstream>
+	<string>
+	<vector>
+	<cassert>
+	"Producto.h"
+	"Proveedor.h"
+
+1574540216 e:\ads\proyectopruebas\inventarioads\producto.h
+	<iostream>
+	<stdlib.h>
+	<fstream>
+	<string>
+	<vector>
+	<cassert>
+	"Lote.h"
+
+1574658094 e:\ads\proyectopruebas\inventarioads\lote.h
+	<iostream>
+	<stdlib.h>
+	<fstream>
+	<string>
+	<vector>
+	<cassert>
+	"Proveedor.h"
+
+1574494468 e:\ads\proyectopruebas\inventarioads\proveedor.h
+	<iostream>
+	<stdlib.h>
+	<fstream>
+	<string>
+	<vector>
+	<cassert>
+
+1574657746 source:e:\ads\proyectopruebas\inventarioads\lote.cpp
+	<string>
+	<iostream>
+	<stdlib.h>
+	"Lote.h"
+
+1574658116 source:e:\ads\proyectopruebas\inventarioads\main.cpp
+	<iostream>
+	<stdlib.h>
+	<string>
+	<exception>
+	<fstream>
+	"Proveedor.h"
+	"Lote.h"
+	"Producto.h"
+	"Almacen.h"
+
+1574658258 source:e:\ads\proyectopruebas\inventarioads\producto.cpp
+	<string>
+	<vector>
+	<iostream>
+	<stdlib.h>
+	"Producto.h"
+	"Almacen.h"
+
+1574538936 source:e:\ads\proyectopruebas\inventarioads\proveedor.cpp
+	<string>
+	<stdlib.h>
+	"Proveedor.h"
+
